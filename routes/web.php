@@ -19,7 +19,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('/admin', [AdminController::class, 'index']);
+Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
+
+    Route::get('/dashboard', [AdminController::class, 'index']);
+
+});
 
 
 Auth::routes();
