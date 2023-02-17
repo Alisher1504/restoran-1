@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('guest_number');
+            $table->string('status')->defaulet('aviable');
+            $table->string('location');
             $table->timestamps();
         });
     }
