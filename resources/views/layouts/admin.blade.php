@@ -28,9 +28,7 @@
     <link href="{{ asset('assets/simplebar/css/simplebar.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/simplebar/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/simplebar/css/example.css') }}" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <div id="app">
