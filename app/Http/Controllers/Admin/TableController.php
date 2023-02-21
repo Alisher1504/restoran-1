@@ -14,4 +14,8 @@ class TableController extends Controller
         return view('admin.Table.index', compact('table'));
     }
 
+    public function create() {
+        return view('admin.table.create');
+    }
+
 }
