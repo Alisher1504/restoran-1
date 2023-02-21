@@ -27,10 +27,15 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
     Route::get('/dashboard', [AdminController::class, 'index']);
 
-    Route::get('/category', [CategoryController::class, 'index']);
+    
     Route::get('/menu', [MenuController::class, 'index']);
     Route::get('/table', [TableController::class, 'index']);
     Route::get('/reservation', [ReservationController::class, 'index']);
+
+    // category
+
+    Route::get('/category', [CategoryController::class, 'index']);
+    Route::get('/category/create', [CategoryController::class, 'create']);
 
 });
 
