@@ -17,14 +17,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 
-                                <form action="">
-
+                                <form action="{{ url('admin/category/store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                     <input type="text" name="name" class="form-control" placeholder="Name">
 
                                     <textarea name="description" id="" rows="4" class="form-control my-2" placeholder="Description"></textarea>
 
-                                    <input type="file" class="form-control">
-
+                                    <input type="file" name="image" class="form-control">
+                                    <button class="mt-2" type="submit" style="background-color: blue; color: white; padding: 10px 15px; border-radius: 5px;" >Save</button>
                                 </form>
 
                             </div>
