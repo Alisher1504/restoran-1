@@ -27,10 +27,8 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
     Route::get('/dashboard', [AdminController::class, 'index']);
 
-    
-    Route::get('/menu', [MenuController::class, 'index']);
     Route::get('/table', [TableController::class, 'index']);
-    Route::get('/reservation', [ReservationController::class, 'index']);
+    
 
     // category
 
@@ -41,6 +39,11 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
     Route::get('/menu', [MenuController::class, 'index']);
     Route::get('/menu/create', [MenuController::class, 'create']);
+
+    // reservation
+
+    Route::get('/reservation', [ReservationController::class, 'index']);
+    Route::get('/reservation/create', [ReservationController::class, 'create']);
 
 });
 

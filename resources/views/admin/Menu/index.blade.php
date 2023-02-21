@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <div class="col-md-12">
                         <a href="{{ url('admin/menu/create') }}" class="btn btn-outline-primary float-end">Add
-                            Category</a>
+                            Menu</a>
                     </div>
                 </div>
                 <div class="card-body">
