@@ -37,6 +37,11 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::get('/category', [CategoryController::class, 'index']);
     Route::get('/category/create', [CategoryController::class, 'create']);
 
+    // menu
+
+    Route::get('/menu', [MenuController::class, 'index']);
+    Route::get('/menu/create', [MenuController::class, 'create']);
+
 });
 
 

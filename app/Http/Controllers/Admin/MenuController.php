@@ -14,4 +14,8 @@ class MenuController extends Controller
         return view('admin.Menu.index', compact('menu'));
     }
 
+    public function create() {
+        return view('admin.Menu.create');
+    }
+
 }
