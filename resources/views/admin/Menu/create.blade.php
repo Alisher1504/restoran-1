@@ -22,8 +22,8 @@
                                     <input type="text" name="name" class="form-control" placeholder="Name">
 
                                     <textarea name="description" id="" rows="4" class="form-control my-2" placeholder="Description"></textarea>
-
-                                    <select name="" id="" multiple class="form-control mb-2">
+                                    <input type="number" name="price" class="form-control my-2" placeholder="Price">
+                                    <select name="categories[]" id="" multiple class="form-control my-2">
 
                                         @foreach ($category as $item)
                                         
@@ -33,7 +33,9 @@
 
                                     </select>
 
-                                    <input type="file" class="form-control">
+                                    <input type="file" class="form-control my-2">
+
+                                    <button class="mt-2" type="submit" style="background-color: blue; color: white; padding: 10px 15px; border-radius: 5px;" >Save</button>
 
                                 </form>
 
