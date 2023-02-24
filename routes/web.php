@@ -43,6 +43,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
     Route::get('/menu', [MenuController::class, 'index']);
     Route::get('/menu/create', [MenuController::class, 'create']);
+    Route::post('/menu/store', [MenuController::class, 'store']);
 
     // reservation
 

@@ -17,8 +17,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 
-                                <form action="">
-
+                                <form action="{{ url('admin/manu/store') }}" method="post">
+                                    @csrf
                                     <input type="text" name="name" class="form-control" placeholder="Name">
 
                                     <textarea name="description" id="" rows="4" class="form-control my-2" placeholder="Description"></textarea>
