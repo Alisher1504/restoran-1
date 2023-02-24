@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 
-                                <form action="{{ url('admin/manu/store') }}" method="post">
+                                <form action="{{ url('admin/menu/store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <input type="text" name="name" class="form-control" placeholder="Name">
 
@@ -33,7 +33,7 @@
 
                                     </select>
 
-                                    <input type="file" class="form-control my-2">
+                                    <input type="file" name="image" class="form-control my-2">
 
                                     <button class="mt-2" type="submit" style="background-color: blue; color: white; padding: 10px 15px; border-radius: 5px;" >Save</button>
 
