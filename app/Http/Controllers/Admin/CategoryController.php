@@ -43,7 +43,7 @@ class CategoryController extends Controller
 
         
 
-        return redirect('admin/category');
+        return redirect('admin/category')->with('message', 'Category create successfully');
 
     }
 
@@ -92,7 +92,15 @@ class CategoryController extends Controller
             'image' => $image,
         ]);
 
-        return redirect('admin/category');
+        return redirect('admin/category')->with('message', 'Category update successfully');
+
+    }
+
+    public function delete($id) {
+
+        $cate = Category::find($id);
+        $cate->delete();
+        return redirect('admin/category')->with('message', 'Category delete successfully');
 
     }
 

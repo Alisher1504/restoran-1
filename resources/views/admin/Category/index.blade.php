@@ -2,6 +2,10 @@
 @section('content')
     <div class="container">
 
+        @if (session('message'))
+            <h1 class="bg-success p-3 my-2 text-white">{{ 'message' }}</h1>
+        @endif
+
         <div class="col-md-8">
 
             <div class="card">
