@@ -23,6 +23,16 @@
 
                                     <textarea name="description" id="" rows="4" class="form-control my-2" placeholder="Description"></textarea>
 
+                                    <select name="" id="" multiple class="form-control mb-2">
+
+                                        @foreach ($category as $item)
+                                        
+                                            <option value="">{{ $item->name }}</option>
+
+                                        @endforeach
+
+                                    </select>
+
                                     <input type="file" class="form-control">
 
                                 </form>
