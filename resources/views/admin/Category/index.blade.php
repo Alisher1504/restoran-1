@@ -24,6 +24,7 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Description</th>
                                             <th scope="col">Image</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -34,6 +35,10 @@
                                                 <td>{{$item->description}}</td>
                                                 <td>
                                                     <img width="100px" height="100px"src="{{url('category/'.$item->image)}}" alt="">
+                                                </td>
+                                                <td>
+                                                    <a href="{{ url('admin/category/edit/'. $item->id) }}" class="btn btn-success">Edit</a>
+                                                    <a href="{{ url('admin/category/delete/'. $item->id) }}" class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach

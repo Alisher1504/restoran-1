@@ -35,6 +35,8 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::get('/category', [CategoryController::class, 'index']);
     Route::get('/category/create', [CategoryController::class, 'create']);
     Route::post('/category/store', [CategoryController::class, 'store']);
+    Route::get('category/edit/{id}', [CategoryController::class, 'edit']);
+    Route::put('category/update/{id}', [CategoryController::class, 'update']);
 
     // menu
 
