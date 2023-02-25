@@ -1,7 +1,9 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container">
-
+        @if (session('message'))
+            <h1 class="bg-success p-3 my-2 text-white">{{ 'message' }}</h1>
+        @endif
         <div class="col-md-8">
 
             <div class="card">
@@ -34,8 +36,10 @@
                                                 <td>{{ $item->description }}</td>
                                                 <td> {{ $item->price }} </td>
                                                 <td>
-                                                    <a href="" class="btn btn-success">Edit</a>
-                                                    <a href="" class="btn btn-danger">Delete</a>
+                                                    <a href="{{ url('admin/menu/edit/' . $item->id) }}"
+                                                        class="btn btn-success">Edit</a>
+                                                    <a href="{{ url('admin/menu/delete/' . $item->id) }}"
+                                                        class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach

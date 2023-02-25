@@ -6,6 +6,7 @@ use App\Models\Menu;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\MenuStoreRequest;
 
 class MenuController extends Controller
@@ -47,6 +48,57 @@ class MenuController extends Controller
         }
 
         return redirect('admin/menu')->with('message', 'Menu create successfully');
+
+    }
+
+    public function edit($id) {
+
+        $menu = Menu::findOrFail($id);
+        $categories = Category::all();
+        return view('admin.Menu.edit', compact('menu', 'categories'));
+
+    }
+
+    public function update(Request $request, $id) {
+
+        $menu = Menu::find($id);
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+        ]);
+
+        if($request->hasFile('image')){
+
+            $path = 'menu/'. $menu->image;
+            
+            if(File::exists($path)){
+                File::delete($path);
+            }
+
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('menu', $filename);
+            $menu->image = $filename;
+
+        }
+
+        $menu->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'image' => $menu->image,
+        ]);
+
+        if($request->has('categories')) {
+
+            $menu->categories()->sync($request->categories);
+
+        }
+
+        return redirect('admin/menu')->with('message', 'Menu update successfully');
 
     }
 
