@@ -19,7 +19,7 @@ class Category extends Model
     ];
 
     public function menus(){
-        return $this->belongsToMany(Menu::class, 'categorys_menu');
+        return $this->belongsToMany(Menu::class, 'category_manu');
     }
 
 }

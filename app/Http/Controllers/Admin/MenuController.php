@@ -35,12 +35,16 @@ class MenuController extends Controller
 
         }
 
-        Menu::create([
+        $menu = Menu::create([
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
             'image' => $menu->image
         ]);
+        
+        if($request->has('categories')){
+            $menu->categories()->attach($request->categories); 
+        }
 
         return redirect('admin/menu')->with('message', 'Menu create successfully');
 
