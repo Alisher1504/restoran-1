@@ -20,8 +20,15 @@
                                 <form action="">
 
                                     <input type="text" name="name" class="form-control" placeholder="Name">
+                                    <input type="number" name="guest_number" class="form-control" placeholder="guest_number">
 
-                                    <textarea name="description" id="" rows="4" class="form-control my-2" placeholder="Description"></textarea>
+                                    <select name="status" id="">
+                                        <option value="">status</option>
+                                    </select>
+
+                                    <select name="location" id="">
+                                        <option value="">location</option>
+                                    </select>
 
                                     <input type="file" class="form-control">
 

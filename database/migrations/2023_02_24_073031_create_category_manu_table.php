@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('category_manu', function (Blueprint $table) {
-            $table->foreignId('category_id')->constrained();
-            $table->foreignId('menu_id')->constrained();
+            $table->foreignId('category_id')->constrained()->deleteOn();
+            $table->foreignId('menu_id')->constrained()->deleteOn();
         });
     }
 

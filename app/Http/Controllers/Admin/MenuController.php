@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\MenuStoreRequest;
+use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
@@ -106,6 +107,7 @@ class MenuController extends Controller
 
         $menu = Menu::findOrFail($id);
         $menu->delete();
+
         return redirect()->back()->with('status', 'Menu delete successfully');
 
     }
