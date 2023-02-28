@@ -48,15 +48,18 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::put('/menu/update/{id}', [MenuController::class, 'update']);
     Route::get('/menu/delete/{id}', [MenuController::class, 'delete']);
 
+    // table
+
+    Route::get('/table', [TableController::class, 'index']);
+    Route::get('/table/create', [TableController::class, 'create']);
+    Route::post('/table/store', [TableController::class, 'store']);
+
     // reservation
 
     Route::get('/reservation', [ReservationController::class, 'index']);
     Route::get('/reservation/create', [ReservationController::class, 'create']);
 
-    // table
-
-    Route::get('/table', [TableController::class, 'index']);
-    Route::get('/table/create', [TableController::class, 'create']);
+    
 
 });
 
