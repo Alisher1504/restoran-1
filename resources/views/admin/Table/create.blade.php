@@ -20,14 +20,18 @@
                                 <form action="">
 
                                     <input type="text" name="name" class="form-control" placeholder="Name">
-                                    <input type="number" name="guest_number" class="form-control" placeholder="guest_number">
+                                    <input type="number" name="guest_number" class="form-control my-2" placeholder="guest_number">
 
-                                    <select name="status" id="">
-                                        <option value="">status</option>
+                                    <select name="status" class="form-control" id="">
+                                        @foreach (App\Enums\TableStatus::cases() as $item)
+                                            <option value="">{{ $item->name }}</option>
+                                        @endforeach
                                     </select>
 
-                                    <select name="location" id="">
-                                        <option value="">location</option>
+                                    <select name="location" class="form-control my-2" id="">
+                                        @foreach (App\Enums\TableLocation::cases() as $item)
+                                            <option value="">{{ $item->name }}</option> 
+                                        @endforeach
                                     </select>
 
                                     <input type="file" class="form-control">
