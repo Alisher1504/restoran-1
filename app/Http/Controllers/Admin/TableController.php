@@ -21,6 +21,8 @@ class TableController extends Controller
 
     public function store(TableStoreRequest $request) {
 
+        $request->validated();
+
         Table::create([
             'name' => $request->name,
             'guest_number' => $request->guest_number,
@@ -42,12 +44,7 @@ class TableController extends Controller
     public function update(TableStoreRequest $request, $id) {
 
         $table = Table::findOrFail($id);
-        $request->validated([
-            'name' => 'required',
-            'guest_number' => 'required',
-            'status' => 'required',
-            'location' => 'required',
-        ]);
+        $request->validated();
 
         $table->update([
             'name' => $request->name,
