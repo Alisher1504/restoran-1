@@ -55,6 +55,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::post('/table/store', [TableController::class, 'store']);
     Route::get('/table/edit/{id}', [TableController::class, 'edit']);
     Route::put('/table/update/{id}', [TableController::class, 'update']);
+    Route::get('/table/delete/{id}', [TableController::class, 'delete']);
 
     // reservation
 
