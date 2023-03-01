@@ -32,4 +32,33 @@ class TableController extends Controller
 
     }
 
+    public function edit($id) {
+
+        $table = Table::findOrFail($id);
+        return view('admin.Table.edit', compact('table'));
+
+    }
+
+    public function update(TableStoreRequest $request, $id) {
+
+        $table = Table::findOrFail($id);
+        $request->validated([
+            'name' => 'required',
+            'guest_number' => 'required',
+            'status' => 'required',
+            'location' => 'required',
+        ]);
+
+        $table->update([
+            'name' => $request->name,
+            'guest_number' => $request->guest_number,
+            'status' => $request->status,
+            'location' => $request->location,
+        ]);
+
+
+        return redirect('admin/table')->with('status', "Table update successfully");
+
+    }
+
 }
