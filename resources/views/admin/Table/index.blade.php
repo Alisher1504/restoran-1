@@ -1,7 +1,9 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container">
-
+        @if (session('status'))
+            <h1 class="bg-success p-3 my-2 text-white">{{ session('status') }}</h1>
+        @endif
         <div class="col-md-8">
 
             <div class="card">
