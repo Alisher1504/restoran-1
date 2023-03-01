@@ -53,6 +53,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::get('/table', [TableController::class, 'index']);
     Route::get('/table/create', [TableController::class, 'create']);
     Route::post('/table/store', [TableController::class, 'store']);
+    Route::get('/table/edit', [TableController::class, 'edit']);
 
     // reservation
 

@@ -35,7 +35,7 @@
                                                 <td>{{ $item->status->name }}</td>
                                                 <td>{{ $item->location->name }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-success text-white">Edit</a>
+                                                    <a href="{{ url('admin/table/edit/'.$item->id ) }}" class="btn btn-success text-white">Edit</a>
                                                     <a href="" class="btn btn-danger text-white">Delete</a>
                                                 </td>
                                             </tr>
