@@ -61,4 +61,13 @@ class TableController extends Controller
 
     }
 
+    public function delete($id) {
+
+        $delete = Table::findOrFail($id);
+        $delete->delete();
+
+        return redirect('admin/table')->with('status', "Table delete successfully");
+
+    }
+
 }
