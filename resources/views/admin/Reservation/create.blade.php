@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 
-                                <form action="{{ url('admin/table/store') }}" method="POST">
+                                <form action="{{ url('admin/reservation/store') }}" method="POST">
                                     @csrf
                                     <input type="text" name="first_name" class="form-control my-2" placeholder="First name">
                                     <input type="text" name="last_name" class="form-control my-2" placeholder="Last name">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Table;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,8 +16,13 @@ class ReservationController extends Controller
     }
 
     public function create() {
-        $table = Reservation::all();
+        $table = Table::all();
         return view('admin.Reservation.create', compact('table'));
     }
+
+    public function store() {
+        
+    }
+
 
 }
