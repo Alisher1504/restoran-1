@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-md-12">
-                        <a href="{{ url('admin/reservation') }}" class="btn btn-outline-primary float-end">Back</a>
+                        <a href="{{ url('admin/table') }}" class="btn btn-outline-primary float-end">Back</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -17,13 +17,22 @@
                         <div class="row">
                             <div class="col-md-12">
                                 
-                                <form action="">
+                                <form action="{{ url('admin/table/store') }}" method="POST">
+                                    @csrf
+                                    <input type="text" name="first_name" class="form-control my-2" placeholder="First name">
+                                    <input type="text" name="last_name" class="form-control my-2" placeholder="Last name">
+                                    <input type="email" name="email" class="form-control my-2" placeholder="Email">
+                                    <input type="number" name="tel_number" class="form-control my-2" placeholder="Tel number">
+                                    <input type="datetime-local" name="rest_date" class="form-control my-2" placeholder="Tel number">
+                                    <input type="number" name="guest_number" class="form-control my-2" placeholder="guest_number">
 
-                                    <input type="text" name="name" class="form-control" placeholder="Name">
+                                    <select name="table_id" class="form-control my-2" id="">
+                                        @foreach ($table as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
 
-                                    <textarea name="description" id="" rows="4" class="form-control my-2" placeholder="Description"></textarea>
-
-                                    <input type="file" class="form-control">
+                                    <button type="submit" style="background-color: blue; color: white; padding: 10px 15px; border-radius: 5px;">Save</button>
 
                                 </form>
 

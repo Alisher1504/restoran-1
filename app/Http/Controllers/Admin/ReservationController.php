@@ -15,7 +15,8 @@ class ReservationController extends Controller
     }
 
     public function create() {
-        return view('admin.Reservation.create');
+        $table = Reservation::all();
+        return view('admin.Reservation.create', compact('table'));
     }
 
 }
