@@ -30,7 +30,7 @@
                                             <th scope="col">Number</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Guest Number</th>
-                                            <th scope="col">Table Id</th>
+                                            <th scope="col">Table</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -43,7 +43,7 @@
                                                 <td>{{ $item->tel_number }}</td>
                                                 <td>{{ $item->rest_date }}</td>
                                                 <td>{{ $item->guest_number }}</td>
-                                                <td>{{ $item->table_id }}</td>
+                                                <td>{{ $item->table->name }}</td>
                                                 <td>
                                                     <a href="" class="btn btn-success">Edit</a>
                                                     <a href="" class="btn btn-danger">Delete</a>
