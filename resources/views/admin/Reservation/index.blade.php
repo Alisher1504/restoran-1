@@ -2,7 +2,11 @@
 @section('content')
     <div class="container">
 
-        <div class="col-md-8">
+        @if (session('status'))
+            <h1 class="bg-success p-3 my-2 text-white">{{   session('status') }}</h1>
+        @endif
+
+        <div class="col-md-10">
 
             <div class="card">
                 <div class="card-header">
@@ -20,30 +24,32 @@
                                 <table class="table table-dark table-striped">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
+                                            <th scope="col">First name</th>
+                                            <th scope="col">Last name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Number</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Guest Number</th>
+                                            <th scope="col">Table Id</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td colspan="2">Larry the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
+                                        @foreach ($reservation as $item)
+                                            <tr>
+                                                <th>{{ $item->first_name }}</th>
+                                                <td>{{ $item->last_name }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->tel_number }}</td>
+                                                <td>{{ $item->rest_date }}</td>
+                                                <td>{{ $item->guest_number }}</td>
+                                                <td>{{ $item->table_id }}</td>
+                                                <td>
+                                                    <a href="" class="btn btn-success">Edit</a>
+                                                    <a href="" class="btn btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
