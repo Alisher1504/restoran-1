@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\TableController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Frontend\WelcomeController;
 use App\Http\Controllers\Admin\ReservationController;
 
 /*
@@ -18,9 +19,7 @@ use App\Http\Controllers\Admin\ReservationController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index']);
 
 // Frontend Category
 
