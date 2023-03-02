@@ -93,5 +93,13 @@ class ReservationController extends Controller
 
     }
 
+    public function delete($id) {
+
+        $delet = Reservation::findOrFail($id);
+        $delet->delete();
+        return redirect('admin/reservation')->with('status', 'Reservation delete successfully');
+
+    }
+
 
 }

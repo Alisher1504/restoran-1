@@ -77,6 +77,7 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::post('/reservation/store', [ReservationController::class, 'store']);
     Route::get('/reservation/edit/{id}', [ReservationController::class, 'edit']);
     Route::put('/reservation/update/{id}', [ReservationController::class, 'update']);
+    Route::get('/reservation/delete/{id}', [ReservationController::class, 'delete']);
 
 });
 
