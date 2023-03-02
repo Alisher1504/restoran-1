@@ -25,7 +25,7 @@ Route::get('/', function () {
 // Frontend Category
 
 Route::get('/categorys', [App\Http\Controllers\Frontend\CategoryController::class, 'index']);
-Route::get('/category/{category}', [App\Http\Controllers\Frontend\CategoryController::class, 'show']);
+Route::get('/categorys/{category}', [App\Http\Controllers\Frontend\CategoryController::class, 'show']);
 
 // Frontend Menu
 
