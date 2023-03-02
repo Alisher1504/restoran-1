@@ -22,13 +22,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Frontend Category
+
+Route::get('/category', [App\Http\Controllers\Frontend\CategoryController::class, 'index']);
+Route::get('/category/{category}', [App\Http\Controllers\Frontend\CategoryController::class, 'show']);
+
+// Frontend Menu
+
+Route::get('/menus', [App\Http\Controllers\Frontend\MenuController::class, 'index']);
+
+// Frontend Reservation
+
+Route::get('/reservation/step-one', [App\Http\Controllers\Frontend\ReservationController::class, 'stepOne']);
+Route::get('/reservation/step-two', [App\Http\Controllers\Frontend\ReservationController::class, 'stepTwo']);
+
+// Admin
 
 Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
 
-    Route::get('/dashboard', [AdminController::class, 'index']);
+    // Dashboard
 
-    
-    
+    Route::get('/dashboard', [AdminController::class, 'index']);
 
     // category
 
@@ -62,8 +76,6 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function() {
     Route::get('/reservation', [ReservationController::class, 'index']);
     Route::get('/reservation/create', [ReservationController::class, 'create']);
     Route::post('/reservation/store', [ReservationController::class, 'store']);
-
-    
 
 });
 
