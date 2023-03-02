@@ -1,7 +1,9 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
-
+    @if (session('status'))
+        <h1 class="bg-danger p-3 my-2 text-white">{{ session('status') }}</h1>
+    @endif
     <div class="col-md-7">
 
         <div class="card">
@@ -49,10 +51,10 @@
 
                                 <select name="table_id" class="form-control my-2" id="">
                                     @foreach ($table as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->name }} ({{ $item->guest_number }})
+                                    </option>
                                     @endforeach
                                 </select>
-
                                 <button type="submit"
                                     style="background-color: blue; color: white; padding: 10px 15px; border-radius: 5px;">Save</button>
 

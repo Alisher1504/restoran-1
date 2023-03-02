@@ -99,6 +99,7 @@ class CategoryController extends Controller
     public function delete($id) {
 
         $cate = Category::find($id);
+        $cate->menus()->detach();
         $cate->delete();
         return redirect('admin/category')->with('message', 'Category delete successfully');
 

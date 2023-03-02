@@ -106,6 +106,7 @@ class MenuController extends Controller
     public function delete($id) {
 
         $menu = Menu::findOrFail($id);
+        $menu->categories()->detach();
         $menu->delete();
 
         return redirect()->back()->with('status', 'Menu delete successfully');

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Table;
+use App\Enums\TableStatus;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReservationStoreRequest;
 
@@ -17,13 +19,24 @@ class ReservationController extends Controller
     }
 
     public function create() {
-        $table = Table::all();
+        $table = Table::where('status', TableStatus::Aviable)->get();
         return view('admin.Reservation.create', compact('table'));
     }
 
     public function store(ReservationStoreRequest $request) {
 
         // Reservation::create($request->validated());
+
+        $table = Table::findOrFail($request->table_id);
+        if($request->guest_number > $table->guest_number) {
+            return back()->with('status', 'Pleace choos the table base on guest.');
+        }
+        $request_date = Carbon::parse($request->rest_date);
+        foreach($table->reservations as $item) {
+            if($item->rest_date->format('Y-m-d') == $request_date->format('Y-m-d')){
+                return back()->with('status', 'This table is reserved for this date.');
+            }
+        }
 
         $request->validated();
 
