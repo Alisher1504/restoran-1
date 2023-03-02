@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Menu;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class MenuController extends Controller
 {
     
     public function index() {
 
-        return 'menu';
+        $menu = Menu::all();
+        return view('page.inc.menu.index',compact('menu'));
 
     }
 
