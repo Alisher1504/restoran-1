@@ -54,5 +54,44 @@ class ReservationController extends Controller
 
     }
 
+    public function edit($id) {
+
+        $reservation = Reservation::findOrFail($id);
+        $table = Table::where('status', TableStatus::Aviable)->get();
+        return view('admin.reservation.edit', compact('table', 'reservation'));
+
+    }
+
+    public function update(ReservationStoreRequest $request, $id){
+
+        $reservat = Reservation::findOrFail($id);
+        $request->validated();
+
+        $table = Table::findOrFail($request->table_id);
+        if($request->guest_number > $table->guest_number) {
+            return back()->with('status', 'Pleace choos the table base on guest.');
+        }
+        $request_date = Carbon::parse($request->rest_date);
+        $mainres = $table->reservations()->where('id', '!=', $reservat->id)->get();
+        foreach($mainres as $item) {
+            if($item->rest_date->format('Y-m-d') == $request_date->format('Y-m-d')){
+                return back()->with('status', 'This table is reserved for this date.');
+            }
+        }
+        
+        $reservat->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'tel_number' => $request->tel_number,
+            'rest_date' => $request->rest_date,
+            'table_id' => $request->table_id,
+            'guest_number' => $request->guest_number,
+        ]);
+
+        return redirect('admin/reservation')->with('status', 'Reservation Update successfully');
+
+    }
+
 
 }
