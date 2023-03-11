@@ -33,7 +33,9 @@ Route::get('/menus', [App\Http\Controllers\Frontend\MenuController::class, 'inde
 // Frontend Reservation
 
 Route::get('/reservation/step-one', [App\Http\Controllers\Frontend\ReservationController::class, 'stepOne']);
+Route::post('/reservation/stepone/store', [App\Http\Controllers\Frontend\ReservationController::class, 'stepOne_store']);
 Route::get('/reservation/step-two', [App\Http\Controllers\Frontend\ReservationController::class, 'stepTwo']);
+Route::post('reservation/steptwo/store', [App\Http\Controllers\Frontend\ReservationController::class, 'stepTwo_store']);
 
 // Admin
 
