@@ -11,21 +11,21 @@
                     <form action="{{ url('reservation/stepone/store') }}" method="POST">
                         @csrf
                         <input type="text" name="first_name" class="form-control my-2"
-                            value="{{ $reservation->first_name ?? ''}}">
+                            value="{{ $reservation->first_name ?? ''}}" placeholder="First name">
                         @error('first_name')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                         <input type="text" name="last_name" class="form-control my-2"
-                            value="{{ $reservation->last_name ?? '' }}">
+                            value="{{ $reservation->last_name ?? '' }}" placeholder="Last name">
                         @error('last_name')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
-                        <input type="email" name="email" class="form-control my-2" value="{{ $reservation->email ?? '' }}">
+                        <input type="email" name="email" class="form-control my-2" value="{{ $reservation->email ?? '' }}" placeholder="Email">
                         @error('email')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                         <input type="number" name="tel_number" class="form-control my-2"
-                            value="{{ $reservation->tel_number ?? '' }}">
+                            value="{{ $reservation->tel_number ?? '' }}" placeholder="Number">
                         @error('tel_number')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -36,8 +36,9 @@
                         @error('rest_date')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
+                        <span>Please choose the time between 17:00 23:00</span>
                         <input type="number" name="guest_number" class="form-control my-2"
-                            value="{{ $reservation->guest_number ?? '' }}">
+                            value="{{ $reservation->guest_number ?? '' }}" placeholder="Guest number">
                         @error('guest_number')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
