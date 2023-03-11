@@ -3,6 +3,10 @@
   </div>
   <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
     <li class="nav-item">
+      <a class="nav-link text-white {{ Request::is('/') ? 'bg-primary text-white' : '' }}" href="{{ url('/') }}">Home Page</a>
+      {{-- <span class="badge badge-sm bg-info ms-auto">NEW</span> --}}
+    </li>
+    <li class="nav-item">
       <a class="nav-link text-white {{ Request::is('admin/dashboard') ? 'bg-primary text-white' : '' }}" href="{{ url('admin/dashboard') }}">Dashboard</a>
       {{-- <span class="badge badge-sm bg-info ms-auto">NEW</span> --}}
     </li>

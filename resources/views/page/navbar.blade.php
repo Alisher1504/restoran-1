@@ -57,6 +57,12 @@
                     @endauth
             @endif
 
+            @if (Auth::user()->role_as == 1)
+            
+                <a class="btn btn-dark" href="{{ url('admin/dashboard') }}">Admin Dashboard</a>
+
+            @endif
+
             
         </div>
     </nav>
