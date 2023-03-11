@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
 
-        <div class="row justify-content-center my-5">
+        <div class="row justify-content-center my-5"  style="height: 70vh">
 
             <div class="col-md-5">
 
