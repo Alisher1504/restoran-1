@@ -36,6 +36,7 @@ Route::get('/reservation/step-one', [App\Http\Controllers\Frontend\ReservationCo
 Route::post('/reservation/stepone/store', [App\Http\Controllers\Frontend\ReservationController::class, 'stepOne_store']);
 Route::get('/reservation/step-two', [App\Http\Controllers\Frontend\ReservationController::class, 'stepTwo']);
 Route::post('reservation/steptwo/store', [App\Http\Controllers\Frontend\ReservationController::class, 'stepTwo_store']);
+Route::get('thanks_you', [App\Http\Controllers\Frontend\WelcomeController::class, 'step']);
 
 // Admin
 

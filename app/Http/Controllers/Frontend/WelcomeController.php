@@ -16,4 +16,8 @@ class WelcomeController extends Controller
 
     }
 
+    public function step() {
+        return view('page.inc.welcome.index');
+    }
+
 }
